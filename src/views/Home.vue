@@ -128,7 +128,7 @@
                 cols="12"
                 class="   d-flex align-center justify-center flex-column"
               >
-                <v-img src="../assets/products/135.png"></v-img>
+                <v-img src="../assets/products/135.png" width="120px" height="120px"></v-img>
 
                 <span class="font-weight-bold">RATTHI MILK </span>
                 <span class="text-success">Rs. 300</span>
@@ -136,6 +136,7 @@
             </v-row>
           </v-card>
         </v-col>
+        <!-- product 2  -->
         <v-col cols="6">
           <v-card class="border border-primary rounded-0">
             <v-row class="m-0">
@@ -143,10 +144,42 @@
                 cols="12"
                 class="   d-flex align-center justify-center flex-column"
               >
-                <v-img src="../assets/products/2.png"></v-img>
+                <v-img src="../assets/products/2.png" width="120px" height="120px"></v-img>
 
                 <span class="font-weight-bold">ANCHOR MILK </span>
                 <span class="text-success">Rs. 300</span>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+        <!-- product 3  -->
+        <v-col cols="6">
+          <v-card class="border border-primary rounded-0">
+            <v-row class="m-0">
+              <v-col
+                cols="12"
+                class="   d-flex align-center justify-center flex-column"
+              >
+                <v-img src="../assets/products/72.png" width="120px" height="120px"></v-img>
+
+                <span class="font-weight-bold">SUNLIGHT SOAP </span>
+                <span class="text-success">Rs. 60</span>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+        <!-- product 4  -->
+        <v-col cols="6">
+          <v-card class="border border-primary rounded-0">
+            <v-row class="m-0">
+              <v-col
+                cols="12"
+                class="   d-flex align-center justify-center flex-column"
+              >
+                <v-img src="../assets/products/milo.jpg" width="120px" height="120px"></v-img>
+
+                <span class="font-weight-bold">MILO DRINK </span>
+                <span class="text-success">Rs. 75</span>
               </v-col>
             </v-row>
           </v-card>
