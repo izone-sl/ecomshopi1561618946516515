@@ -83,7 +83,7 @@
     </v-row>
 
     <!-- ads/ image slider -->
-    <v-carousel interval="500" cycle show-arrows-on-hover height="auto">
+    <v-carousel interval="2000" cycle show-arrows-on-hover height="auto">
       <v-carousel-item v-for="(item, i) in items" :key="i">
         <v-row>
           <v-spacer />
@@ -120,30 +120,11 @@
     <!-- MOBILE ONLY PRODUCT DISPLAY -->
     <v-card class="mobile_product_view" tile flat>
       <v-row class="m-0 ">
+        <!-- P1 -->
         <v-col cols="6">
-          <!-- PRODUCT IMAGE CARD -->
           <v-card class="border border-primary rounded-0  pa-1">
             <v-img src="../assets/products/135.png" height="100px"></v-img>
-            <v-card-title>
-              RATTHI MILK
-            </v-card-title>
-            <v-card-subtitle class="text-success">
-              Rs. 300
-            </v-card-subtitle>
-
-            <v-card-actions>
-              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
-              <v-spacer></v-spacer>
-              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <!-- product 2 -->
-        <v-col cols="6">
-          <!-- PRODUCT IMAGE CARD -->
-          <v-card class="border border-primary rounded-0  pa-1">
-            <v-img src="../assets/products/135.png" height="100px"></v-img>
-            <v-card-title>
+            <v-card-title style="font-size:18px;">
               RATTHI MILK
             </v-card-title>
             <v-card-subtitle class="text-success">
@@ -158,16 +139,15 @@
           </v-card>
         </v-col>
 
-         <!-- product 3 -->
+        <!-- P2 -->
         <v-col cols="6">
-          <!-- PRODUCT IMAGE CARD -->
           <v-card class="border border-primary rounded-0  pa-1">
-            <v-img src="../assets/products/135.png" height="100px"></v-img>
-            <v-card-title>
-              RATTHI MILK
+            <v-img src="../assets/products/2.png" height="100px"></v-img>
+            <v-card-title style="font-size:18px;">
+              ANCHOR MILK
             </v-card-title>
             <v-card-subtitle class="text-success">
-              Rs. 300
+              Rs. 360
             </v-card-subtitle>
 
             <v-card-actions>
@@ -178,16 +158,34 @@
           </v-card>
         </v-col>
 
-         <!-- product 4 -->
+        <!-- P3 -->
         <v-col cols="6">
-          <!-- PRODUCT IMAGE CARD -->
           <v-card class="border border-primary rounded-0  pa-1">
-            <v-img src="../assets/products/135.png" height="100px"></v-img>
-            <v-card-title>
-              RATTHI MILK
+            <v-img src="../assets/products/milo.jpg" height="100px"></v-img>
+            <v-card-title style="font-size:18px;">
+              MILO DRINK
             </v-card-title>
             <v-card-subtitle class="text-success">
-              Rs. 300
+              Rs. 75
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <!-- P4 -->
+        <v-col cols="6">
+          <v-card class="border border-primary rounded-0  pa-1">
+            <v-img src="../assets/products/72.png" height="100px"></v-img>
+            <v-card-title style="font-size:18px;">
+              SUNLIGHT SOAP
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 60
             </v-card-subtitle>
 
             <v-card-actions>
@@ -199,6 +197,21 @@
         </v-col>
       </v-row>
     </v-card>
+
+    <!-- advertisement -->
+    <v-row class="ma-0">
+      <v-col md="12" cols="12">
+        <v-list-item-avatar
+          tile
+          width="100%"
+          height="150"
+          color="grey"
+          class="d-flex align-center justify-center"
+        >
+          <p>advertisement section</p>
+        </v-list-item-avatar>
+      </v-col>
+    </v-row>
 
     <br />
     <br />
