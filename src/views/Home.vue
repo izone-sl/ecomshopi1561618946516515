@@ -99,7 +99,7 @@
       <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
         <v-toolbar-title>LATEST PRODUCTS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#375bd0" depressed>
+        <v-btn color="#375bd0" >
           View All
         </v-btn>
       </v-toolbar>
@@ -290,10 +290,10 @@
     <!-- MOBILE ONLY PRODUCT DISPLAY -->
     <!-- KITCHEN PRODUCTS -->
     <v-card class="mt-3" flat tile>
-      <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
+      <v-toolbar dark color="#E91E63" dense class="rounded-0 border-0">
         <v-toolbar-title>KITCHEN EQUIPMENTS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#375bd0" depressed>
+        <v-btn color="#E91E63" >
           View All
         </v-btn>
       </v-toolbar>
@@ -311,7 +311,7 @@
       </v-tabs>
     </v-card>
     <v-card class="mobile_product_view" tile flat>
-      <v-row class="m-0  pa-2" style="background-color:#375bd0;">
+      <v-row class="m-0  pa-2" style="background-color:#E91E63;">
         <!-- p1 -->
         <v-col cols="6" class="bg-light ">
           <v-card class="border border-primary rounded-0  pa-1" width="100%">
@@ -404,10 +404,10 @@
     <!-- MOBILE ONLY PRODUCT DISPLAY -->
     <!-- SPORTS PRODUCTS -->
     <v-card class="mt-3" flat tile>
-      <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
+      <v-toolbar dark color="#B71C1C" dense class="rounded-0 border-0">
         <v-toolbar-title>SPORTS EQUIPMENTS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#375bd0" depressed>
+        <v-btn color="#B71C1C" >
           View All
         </v-btn>
       </v-toolbar>
@@ -425,7 +425,7 @@
       </v-tabs>
     </v-card>
     <v-card class="mobile_product_view" tile flat>
-      <v-row class="m-0  pa-2" style="background-color:#375bd0;">
+      <v-row class="m-0  pa-2" style="background-color:#B71C1C;">
         <!-- p1 -->
         <v-col cols="6" class="bg-light ">
           <v-card class="border border-primary rounded-0  pa-1" width="100%">
@@ -521,7 +521,7 @@
       <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
         <v-toolbar-title>COSMATICS ITEMS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#375bd0" depressed>
+        <v-btn color="#375bd0" >
           View All
         </v-btn>
       </v-toolbar>
@@ -630,7 +630,6 @@
     </v-card>
 
     <Footer />
-    
   </div>
 </template>
 
