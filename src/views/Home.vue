@@ -730,7 +730,7 @@ export default {
     Footer,
   },
   data: () => ({
-    navigationDrawer: true,
+    navigationDrawer: false,
     items: [
       "https://shoppingo.lk/admin_area/slides_images/4s.jpg",
       "https://shoppingo.lk/admin_area/slides_images/3s.jpg",
