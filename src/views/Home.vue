@@ -3,7 +3,11 @@
     <!-- TOP NAVIGATION -->
 
     <v-toolbar dense height="65" color="#375bd0" dark>
-      <v-app-bar-nav-icon class="c_menu"></v-app-bar-nav-icon> menu
+      <v-app-bar-nav-icon
+        class="c_menu"
+        @click="navigationDrawer = !navigationDrawer"
+      ></v-app-bar-nav-icon>
+      menu
       <!-- <v-avatar class="c_avatar">
         <v-img src="../assets/logo.png"></v-img>
       </v-avatar> -->
@@ -26,6 +30,91 @@
         <v-icon small>mdi-login</v-icon> Login
       </v-btn>
     </v-toolbar>
+
+    <!-- Navigation bar -->
+    <v-navigation-drawer
+      v-model="navigationDrawer"
+      app
+      class=""
+      dark
+      temporary
+      color=" blue darken-4"
+    >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title
+            class="pt-3 text-light d-flex justify-center align-center"
+          >
+            MENU
+            <v-spacer></v-spacer>
+            <v-icon @click="navigationDrawer = false">mdi-close</v-icon>
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list dense nav>
+        <v-list-item
+          v-for="item in NavigationItems"
+          :key="item.title"
+          link
+          class="text-decoration-none"
+        >
+          <v-list-item-icon>
+            <v-icon class="white--text">{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-light">
+              {{ item.title }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-divider></v-divider>
+
+      <v-list dense nav>
+        <v-list-item class="text-decoration-none">
+          <v-list-item-icon>
+            <v-icon class="white--text"> mdi-whatsapp</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-light">
+              <a
+                class="text-decoration-none text-light block"
+                href="https://api.whatsapp.com/send?phone=94776372801&text=Hello%20There,%20i%20need%20a%20product%20can%20you%20help%20me%20to%20purchase?"
+              >
+                CHAT ON WHATSAPP</a
+              >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item class="text-decoration-none">
+          <v-list-item-icon>
+            <v-icon class="white--text"> mdi-phone</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-light">
+              +94 77 637 2801
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item class="text-decoration-none">
+          <v-list-item-icon>
+            <v-icon class="white--text"> mdi-mail</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-light">
+              shopikart@gmail.com
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
     <!-- MOBILE ONLY SEARCH FUNCTION -->
     <v-card
@@ -99,7 +188,7 @@
       <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
         <v-toolbar-title>LATEST PRODUCTS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#375bd0" >
+        <v-btn color="#375bd0">
           View All
         </v-btn>
       </v-toolbar>
@@ -293,7 +382,7 @@
       <v-toolbar dark color="#E91E63" dense class="rounded-0 border-0">
         <v-toolbar-title>KITCHEN EQUIPMENTS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#E91E63" >
+        <v-btn color="#E91E63">
           View All
         </v-btn>
       </v-toolbar>
@@ -407,7 +496,7 @@
       <v-toolbar dark color="#B71C1C" dense class="rounded-0 border-0">
         <v-toolbar-title>SPORTS EQUIPMENTS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#B71C1C" >
+        <v-btn color="#B71C1C">
           View All
         </v-btn>
       </v-toolbar>
@@ -521,7 +610,7 @@
       <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
         <v-toolbar-title>COSMATICS ITEMS</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn color="#375bd0" >
+        <v-btn color="#375bd0">
           View All
         </v-btn>
       </v-toolbar>
@@ -641,10 +730,47 @@ export default {
     Footer,
   },
   data: () => ({
+    navigationDrawer: true,
     items: [
       "https://shoppingo.lk/admin_area/slides_images/4s.jpg",
       "https://shoppingo.lk/admin_area/slides_images/3s.jpg",
-      // "https://thelorry.com/images/backgrounds/shopee/Header-Banner.jpg",
+    ],
+    NavigationItems: [
+      {
+        title: "Home",
+        icon: "mdi-home",
+        name: "",
+      },
+      {
+        title: "Contact us",
+        icon: "mdi-phone",
+        name: "",
+      },
+      {
+        title: "FAQ",
+        icon: "mdi-file-question-outline",
+        name: "",
+      },
+      {
+        title: "Wishlist",
+        icon: "mdi-heart",
+        name: "",
+      },
+      {
+        title: "Signin",
+        icon: "mdi-login",
+        name: "",
+      },
+      {
+        title: "Create an account",
+        icon: "mdi-clipboard-account",
+        name: "",
+      },
+      {
+        title: "All categories",
+        icon: "mdi-label",
+        name: "",
+      },
     ],
   }),
 };
