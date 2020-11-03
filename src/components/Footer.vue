@@ -18,14 +18,14 @@
               <v-icon class="text-primary">mdi-instagram </v-icon> Follow us on
               Instagram
             </a>
-            <iframe
+            <!-- <iframe
               class="fb-page"
               ref=""
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FShopikart-102396888348216%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
               style="border:none;overflow:hidden; width:100%; height:500px;"
               scrolling="yes"
               frameborder="0"
-            ></iframe>
+            ></iframe> -->
           </div>
 
           <div class="col-xl-2  ">
