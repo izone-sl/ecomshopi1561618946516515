@@ -2,7 +2,7 @@
   <div id="Home">
     <!-- TOP NAVIGATION -->
 
-    <v-toolbar dense height="65" color="#375bd0" dark>
+    <v-toolbar dense height="65" color="#375bd0" dark >
       <v-app-bar-nav-icon
         class="c_menu"
         @click="navigationDrawer = !navigationDrawer"

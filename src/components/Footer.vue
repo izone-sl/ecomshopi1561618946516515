@@ -16,27 +16,37 @@
             </a>
             <a href="" class="btn d-flex align-center">
               <v-icon class="text-primary">mdi-instagram </v-icon> Follow us on
-              Facebook
+              Instagram
             </a>
+            <iframe
+              class="fb-page"
+              ref=""
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FShopikart-102396888348216%2F&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+              style="border:none;overflow:hidden; width:100%; height:500px;"
+              scrolling="yes"
+              frameborder="0"
+            ></iframe>
           </div>
+
           <div class="col-xl-2  ">
-            <span class="ml-3">Learn More</span>
+            <!-- <span class="ml-3">Learn More</span> -->
             <br />
-            <a href="" class="btn" style="font-size:15px; ">How to sell fast</a>
+            <a href="" class="btn" style="font-size:15px; ">Home</a>
+
+            <br />
+            <a href="" class="btn" style="font-size:15px; ">About us</a>
+
+            <br />
+            <a href="" class="btn" style="font-size:15px; ">Contact us</a>
             <br />
             <a href="" class="btn" style="font-size:15px; "
-              >Doorstep Delivery</a
+              >Feedback & inquires</a
             >
-            <br />
-            <a href="" class="btn" style="font-size:15px; ">Membership</a>
-            <br />
-            <a href="" class="btn" style="font-size:15px; "
-              >Banner Advertising</a
-            >
-            <br />
-            <a href="" class="btn" style="font-size:15px; ">Promote your ad</a>
           </div>
           <div class="col-xl-2  ">
+            <v-img src="../assets/cashondelivery.png" width="90%"></v-img>
+          </div>
+          <!-- <div class="col-xl-2  ">
             <span class="ml-3"> Help & Support</span>
             <br />
             <a href="" class="btn" style="font-size:15px; ">FAQ</a>
@@ -65,7 +75,7 @@
             ><br />
             <a href="" class="btn" style="font-size:15px; ">Sitemap</a><br />
             <br />
-          </div>
+          </div> -->
         </v-row>
         <v-row>
           <div class="col-xl-12  ">
@@ -101,5 +111,44 @@ export default {
   },
 };
 </script>
+<style scoped>
+/* small mobile size */
+@media screen and (min-width: 320px) {
+  .fb-page {
+    display: block;
+  }
+}
 
-<style></style>
+/* medium mobile size */
+@media screen and (min-width: 375px) {
+  .fb-page {
+    display: block;
+  }
+}
+
+/* large mobile size */
+@media screen and (min-width: 425px) {
+  .fb-page {
+    display: block;
+  }
+}
+
+/* tablet size */
+@media screen and (min-width: 768px) {
+  .fb-page {
+    display: none;
+  }
+}
+
+/* laptop size */
+@media screen and (max-width: 1024px) {
+}
+
+/* laptop Large size */
+@media screen and (min-width: 1440px) {
+}
+
+/* 4K size */
+@media screen and (max-width: 2560px) {
+}
+</style>
