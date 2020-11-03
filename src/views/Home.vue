@@ -38,16 +38,16 @@
       class=""
       dark
       temporary
-      color=" blue darken-4"
+      color="#d7d7d6"
     >
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title
-            class="pt-3 text-light d-flex justify-center align-center"
+            class="pt-3 text-dark d-flex justify-center align-center"
           >
             MENU
             <v-spacer></v-spacer>
-            <v-icon @click="navigationDrawer = false">mdi-close</v-icon>
+            <v-icon @click="navigationDrawer = false" class="text-dark">mdi-close</v-icon>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -60,11 +60,11 @@
           class="text-decoration-none"
         >
           <v-list-item-icon>
-            <v-icon class="white--text">{{ item.icon }}</v-icon>
+            <v-icon class="black--text">{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title class="text-light">
+            <v-list-item-title class="text-dark">
               {{ item.title }}
             </v-list-item-title>
           </v-list-item-content>
@@ -75,13 +75,13 @@
       <v-list dense nav>
         <v-list-item class="text-decoration-none">
           <v-list-item-icon>
-            <v-icon class="white--text"> mdi-whatsapp</v-icon>
+            <v-icon class="black--text"> mdi-whatsapp</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title class="text-light">
+            <v-list-item-title class="text-dark">
               <a
-                class="text-decoration-none text-light block"
+                class="text-decoration-none text-dark block"
                 href="https://api.whatsapp.com/send?phone=94776372801&text=Hello%20There,%20i%20need%20a%20product%20can%20you%20help%20me%20to%20purchase?"
               >
                 CHAT ON WHATSAPP</a
@@ -92,11 +92,11 @@
 
         <v-list-item class="text-decoration-none">
           <v-list-item-icon>
-            <v-icon class="white--text"> mdi-phone</v-icon>
+            <v-icon class="black--text"> mdi-phone</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title class="text-light">
+            <v-list-item-title class="text-dark">
               +94 77 637 2801
             </v-list-item-title>
           </v-list-item-content>
@@ -104,11 +104,11 @@
 
         <v-list-item class="text-decoration-none">
           <v-list-item-icon>
-            <v-icon class="white--text"> mdi-mail</v-icon>
+            <v-icon class="black--text"> mdi-mail</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title class="text-light">
+            <v-list-item-title class="text-dark">
               shopikart@gmail.com
             </v-list-item-title>
           </v-list-item-content>
