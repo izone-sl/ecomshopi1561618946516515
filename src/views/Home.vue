@@ -1,17 +1,20 @@
 <template>
-  <div id="Home">
+  <div id="Home" v-if="JStore[0]">
+    <!-- if statement placed to hide the undifented Jstore array [0] -->
     <!-- TOP NAVIGATION -->
 
-    <v-toolbar dense height="65" color="#375bd0" dark >
+    <v-toolbar dense height="65" color="#375bd0" dark>
       <v-app-bar-nav-icon
         class="c_menu"
         @click="navigationDrawer = !navigationDrawer"
       ></v-app-bar-nav-icon>
-      menu
+
       <!-- <v-avatar class="c_avatar">
         <v-img src="../assets/logo.png"></v-img>
       </v-avatar> -->
-      <v-toolbar-title class="c_title">Shopikart</v-toolbar-title>
+      <v-toolbar-title class="c_title">
+        {{ JStore[0]["contactInfomation"].name }}</v-toolbar-title
+      >
       <v-spacer></v-spacer>
 
       <v-text-field
@@ -25,7 +28,9 @@
         @click:append=""
       ></v-text-field>
       <v-spacer></v-spacer>
-
+      <v-btn small depressed class="c_login_btn" color="#375bd0">
+        <v-icon small>mdi-cart</v-icon>
+      </v-btn>
       <v-btn depressed class="c_login_btn" color="#375bd0">
         <v-icon small>mdi-login</v-icon> Login
       </v-btn>
@@ -47,14 +52,16 @@
           >
             MENU
             <v-spacer></v-spacer>
-            <v-icon @click="navigationDrawer = false" class="text-dark">mdi-close</v-icon>
+            <v-icon @click="navigationDrawer = false" class="text-dark"
+              >mdi-close</v-icon
+            >
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
       <v-list dense nav>
         <v-list-item
-          v-for="item in NavigationItems"
+          v-for="item in JStore[0].navigationRoutes"
           :key="item.title"
           link
           class="text-decoration-none"
@@ -66,6 +73,21 @@
           <v-list-item-content>
             <v-list-item-title class="text-dark">
               {{ item.title }}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          link
+          class="text-decoration-none"
+          @click="all_category_dialog = true"
+        >
+          <v-list-item-icon>
+            <v-icon class="black--text">mdi-label</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title class="text-dark">
+              All Categories
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -97,7 +119,7 @@
 
           <v-list-item-content>
             <v-list-item-title class="text-dark">
-              +94 77 637 2801
+              {{ JStore[0]["contactInfomation"].whatsapp }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -109,12 +131,75 @@
 
           <v-list-item-content>
             <v-list-item-title class="text-dark">
-              shopikart@gmail.com
+              {{ JStore[0]["contactInfomation"].email }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
+    <!-- all category dialog on navigation bar -->
+    <v-row justify="center">
+      <v-dialog
+        v-model="all_category_dialog"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"
+      >
+        <v-card>
+          <v-toolbar dark color="primary">
+            <v-btn icon dark @click="all_category_dialog = false">
+              <v-icon>mdi-keyboard-backspace</v-icon>
+            </v-btn>
+            <v-toolbar-title>All Categories</v-toolbar-title>
+          </v-toolbar>
+          <v-list three-line subheader>
+            <v-list-item>
+              <v-list-item-content>
+                <v-row class="m-0">
+                  <v-col
+                    md="2"
+                    cols="5"
+                    class="card   ma-1 ml-5 p-0 text-center border-0"
+                    v-for="(item, index) in JStore[0]['MainCategories']"
+                    :key="index"
+                    v-if="item.visibleStatus === 'display'"
+                  >
+                    <v-card
+                      tile
+                      :color="coloringCard(index)"
+                      class=" d-flex flex-column align-center justify-center  "
+                      @click=""
+                    >
+                      <!-- <v-img
+                        src="../assets/category_avatar/baby_kids.jpeg"
+                        max-width="200"
+                        class="card"
+                      ></v-img> -->
+
+                      <v-img
+                        :src="
+                          require(`../assets/category_avatar/` + item.avatar)
+                        "
+                        class="card"
+                        max-width="200"
+                        max-height="200"
+                        alt="categories"
+                      />
+
+                      <br />
+                      <p class="text-light" style="font-size:11px;">
+                        {{ item.title }}
+                      </p>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-dialog>
+    </v-row>
 
     <!-- MOBILE ONLY SEARCH FUNCTION -->
     <v-card
@@ -138,23 +223,47 @@
       </v-col>
     </v-card>
 
-    <!-- TAB SLIDER -->
+    <!--CATEGORY TAB SLIDER -->
 
     <v-tabs light height="90" class="w-100 ma-0 pa-0">
+      <v-tab
+        v-for="(item, index) in JStore[0]['MainCategories']"
+        :key="index"
+        class="w-100 ma-0 pa-0"
+        v-if="item.visibleStatus === 'display'"
+      >
+        <v-card flat tile @click="" class="w-100 ma-0 pa-0">
+          <v-avatar size="70" color="white">
+            <img
+              :src="require(`../assets/category_avatar/` + item.avatar)"
+              max-width="250"
+              max-height="250"
+              alt="categories"
+            />
+          </v-avatar>
+
+          <br />
+          <p style="font-size:6px;">{{ item.title }}</p>
+        </v-card>
+      </v-tab>
+    </v-tabs>
+
+    <!-- local test -->
+    <!-- <v-tabs light height="90" class="w-100 ma-0 pa-0">
       <v-tab v-for="i in 30" :key="i" class="w-100 ma-0 pa-0">
         <v-card flat tile @click="" class="w-100 ma-0 pa-0">
           <v-avatar>
             <v-img
               src="../assets/logo.png"
-              max-width="10"
-              max-height="10"
+              max-width="300"
+              max-height="300"
             ></v-img>
           </v-avatar>
           <br />
           <p style="font-size:6px;">CATEGORIES {{ i }}</p>
         </v-card>
       </v-tab>
-    </v-tabs>
+    </v-tabs> -->
 
     <!-- advertisement -->
     <v-row class="ma-0">
@@ -182,7 +291,7 @@
       </v-carousel-item>
     </v-carousel>
 
-    <!-- MOBILE ONLY PRODUCT DISPLAY -->
+    <!-- MOBILE ONLY LATEST DISPLAY -->
     <!-- LATEST PRODUCTS -->
     <v-card class="mt-3" flat tile>
       <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
@@ -376,11 +485,11 @@
       </v-col>
     </v-row>
 
-    <!-- MOBILE ONLY PRODUCT DISPLAY -->
-    <!-- KITCHEN PRODUCTS -->
+    <!-- MOBILE ONLY HOME & KITCHEN DISPLAY -->
+    <!-- HOME & KITCHEN PRODUCTS -->
     <v-card class="mt-3" flat tile>
       <v-toolbar dark color="#E91E63" dense class="rounded-0 border-0">
-        <v-toolbar-title>KITCHEN EQUIPMENTS</v-toolbar-title>
+        <v-toolbar-title>HOME & KITCHEN </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn color="#E91E63">
           View All
@@ -490,8 +599,8 @@
       </v-row>
     </v-card>
 
-    <!-- MOBILE ONLY PRODUCT DISPLAY -->
-    <!-- SPORTS PRODUCTS -->
+    <!-- MOBILE ONLY SPORTS EQUIPMENTS DISPLAY -->
+    <!-- SPORTS EQUIPMENTS PRODUCTS -->
     <v-card class="mt-3" flat tile>
       <v-toolbar dark color="#B71C1C" dense class="rounded-0 border-0">
         <v-toolbar-title>SPORTS EQUIPMENTS</v-toolbar-title>
@@ -604,8 +713,8 @@
       </v-row>
     </v-card>
 
-    <!-- MOBILE ONLY PRODUCT DISPLAY -->
-    <!-- SPORTS PRODUCTS -->
+    <!-- MOBILE ONLY COSMATICS ITEMS DISPLAY -->
+    <!-- COSMATICS ITEMS PRODUCTS -->
     <v-card class="mt-3" flat tile>
       <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
         <v-toolbar-title>COSMATICS ITEMS</v-toolbar-title>
@@ -724,55 +833,48 @@
 
 <script>
 import Footer from "../components/Footer";
+const JsonStore = require("../store/JsonStore");
 export default {
   name: "Home",
   components: {
     Footer,
   },
   data: () => ({
+    JStore: [],
     navigationDrawer: false,
+    all_category_dialog: false,
     items: [
       "https://shoppingo.lk/admin_area/slides_images/4s.jpg",
       "https://shoppingo.lk/admin_area/slides_images/3s.jpg",
     ],
-    NavigationItems: [
-      {
-        title: "Home",
-        icon: "mdi-home",
-        name: "",
-      },
-      {
-        title: "Contact us",
-        icon: "mdi-phone",
-        name: "",
-      },
-      {
-        title: "FAQ",
-        icon: "mdi-file-question-outline",
-        name: "",
-      },
-      {
-        title: "Wishlist",
-        icon: "mdi-heart",
-        name: "",
-      },
-      {
-        title: "Signin",
-        icon: "mdi-login",
-        name: "",
-      },
-      {
-        title: "Create an account",
-        icon: "mdi-clipboard-account",
-        name: "",
-      },
-      {
-        title: "All categories",
-        icon: "mdi-label",
-        name: "",
-      },
-    ],
+    colorCache: {},
   }),
+  mounted() {
+    JsonStore["tempJson"].forEach((element) => {
+      console.log(element);
+      this.JStore.push(element);
+    });
+  },
+  watch: {
+    coloringCard(id) {
+      const r = () => Math.floor(256 * Math.random());
+
+      return (
+        this.colorCache[id] ||
+        (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
+      );
+    },
+  },
+  methods: {
+    coloringCard(id) {
+      const r = () => Math.floor(256 * Math.random());
+
+      return (
+        this.colorCache[id] ||
+        (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
+      );
+    },
+  },
 };
 </script>
 <style scoped>
