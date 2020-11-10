@@ -156,41 +156,35 @@
           <v-list three-line subheader>
             <v-list-item>
               <v-list-item-content>
-                <v-row class="m-0">
+                <v-row class="m-0 flex flex-row justify-center align-center">
                   <v-col
                     md="2"
                     cols="5"
-                    class="card   ma-1 ml-5 p-0 text-center border-0"
+                    class=" p-0 text-center border-0"
                     v-for="(item, index) in JStore[0]['MainCategories']"
                     :key="index"
                     v-if="item.visibleStatus === 'display'"
                   >
                     <v-card
                       tile
+                      flat
                       :color="coloringCard(index)"
-                      class=" d-flex flex-column align-center justify-center  "
+                      class=" ma-1  "
                       @click=""
                     >
-                      <!-- <v-img
-                        src="../assets/category_avatar/baby_kids.jpeg"
-                        max-width="200"
-                        class="card"
-                      ></v-img> -->
-
                       <v-img
                         :src="
-                          require(`../assets/category_avatar/` + item.avatar)
+                          require(`../assets/main_categories/` + item.avatar)
                         "
-                        class="card"
-                        max-width="200"
-                        max-height="200"
+                        max-width="320"
                         alt="categories"
+                        class="border-0"
                       />
 
-                      <br />
+                      <!-- <br />
                       <p class="text-light" style="font-size:11px;">
                         {{ item.title }}
-                      </p>
+                      </p> -->
                     </v-card>
                   </v-col>
                 </v-row>
