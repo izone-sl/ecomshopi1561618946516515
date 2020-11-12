@@ -159,7 +159,7 @@
         transition="dialog-bottom-transition"
       >
         <v-card>
-          <v-toolbar dark color="primary">
+          <v-toolbar dark color="#375bd0">
             <v-btn icon dark @click="all_category_dialog = false">
               <v-icon>mdi-keyboard-backspace</v-icon>
             </v-btn>
