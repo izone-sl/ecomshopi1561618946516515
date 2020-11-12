@@ -11,7 +11,11 @@
 
       <v-spacer></v-spacer>
 
-      <v-img class="c_title"  src="../assets/Logo/logo white bg.jpeg" max-width="100"></v-img>
+      <v-img
+        class="c_title"
+        src="../assets/Logo/logo white bg.jpeg"
+        max-width="100"
+      ></v-img>
 
       <!-- <v-toolbar-title class="c_title">
         {{ JStore[0]["contactInfomation"].name }}</v-toolbar-title
@@ -55,16 +59,19 @@
             >
               MENU
               <v-spacer></v-spacer>
-              <v-img
-                src="../assets/Logo/logo yellow bg.jpeg"
-                max-width="50"
-              ></v-img>
-              <v-spacer></v-spacer>
+
+              <v-avatar size="30">
+                <v-img
+                  src="../assets/Logo/logo yellow bg.jpeg"
+                  max-width="50"
+                ></v-img>
+              </v-avatar>
+              <!-- <v-spacer></v-spacer>
               <v-icon
                 @click="navigationDrawer = false"
                 class="text-light mdi-38px "
                 >mdi-close</v-icon
-              >
+              > -->
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -116,7 +123,11 @@
             <v-list-item-title class="text-dark">
               <a
                 class="text-decoration-none text-dark block"
-                href="https://api.whatsapp.com/send?phone=94776372801&text=Hello%20There,%20i%20need%20a%20product%20can%20you%20help%20me%20to%20purchase?"
+                :href="
+                  `https://api.whatsapp.com/send?phone=` +
+                    JStore[0]['contactInfomation'].whatsapp +
+                    `&text=Hello%20There,%20i%20need%20a%20product%20can%20you%20help%20me%20to%20purchase?`
+                "
               >
                 CHAT ON WHATSAPP</a
               >
