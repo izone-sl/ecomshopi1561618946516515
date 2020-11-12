@@ -11,7 +11,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-img src="../assets/Logo/logo white bg.jpeg" max-width="100"></v-img>
+      <v-img class="c_title"  src="../assets/Logo/logo white bg.jpeg" max-width="100"></v-img>
 
       <!-- <v-toolbar-title class="c_title">
         {{ JStore[0]["contactInfomation"].name }}</v-toolbar-title
