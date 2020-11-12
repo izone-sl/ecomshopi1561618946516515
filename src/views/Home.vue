@@ -9,12 +9,14 @@
         @click="navigationDrawer = !navigationDrawer"
       ></v-app-bar-nav-icon>
 
-      <!-- <v-avatar class="c_avatar">
-        <v-img src="../assets/logo.png"></v-img>
-      </v-avatar> -->
-      <v-toolbar-title class="c_title">
+      <v-spacer></v-spacer>
+
+      <v-img src="../assets/Logo/logo white bg.jpeg" max-width="100"></v-img>
+
+      <!-- <v-toolbar-title class="c_title">
         {{ JStore[0]["contactInfomation"].name }}</v-toolbar-title
-      >
+      > -->
+
       <v-spacer></v-spacer>
 
       <v-text-field
@@ -45,19 +47,29 @@
       temporary
       color="#d7d7d6"
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title
-            class="pt-3 text-dark d-flex justify-center align-center"
-          >
-            MENU
-            <v-spacer></v-spacer>
-            <v-icon @click="navigationDrawer = false" class="text-dark"
-              >mdi-close</v-icon
+      <v-toolbar color="#375bd0" dark flat tile height="65">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title
+              class="pt-3 text-light d-flex justify-center align-center "
             >
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+              MENU
+              <v-spacer></v-spacer>
+              <v-img
+                src="../assets/Logo/logo white bg.jpeg"
+                max-width="50"
+              ></v-img>
+              <v-spacer></v-spacer>
+              <v-icon
+                @click="navigationDrawer = false"
+                class="text-light mdi-38px "
+                >mdi-close</v-icon
+              >
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-toolbar>
+
       <v-divider></v-divider>
       <v-list dense nav>
         <v-list-item
@@ -104,7 +116,7 @@
             <v-list-item-title class="text-dark">
               <a
                 class="text-decoration-none text-dark block"
-                href="https://api.whatsapp.com/send?phone=94776372801&text=Hello%20There,%20i%20need%20a%20product%20can%20you%20help%20me%20to%20purchase?"
+                :href="`https://api.whatsapp.com/send?phone=`+JStore[0]['contactInfomation'].whatsapp+`&text=Hello%20There,%20i%20need%20a%20product%20can%20you%20help%20me%20to%20purchase?`"
               >
                 CHAT ON WHATSAPP</a
               >

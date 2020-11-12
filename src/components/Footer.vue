@@ -4,7 +4,47 @@
       <div style="height:5px; background-color:#004D40; width:100%"></div>
     </v-row>
 
-    <v-row class="m-0">
+    <v-row class="m-0 mobile_footer">
+      <div class="col-xl-12 text-center d-flex flex-column justify-center align-center ">
+        <span class="ml-3"> Connect with us</span>
+        <br />
+        <a href="" class="btn ">
+          <v-icon class="text-primary">mdi-facebook </v-icon> Like us on
+          Facebook
+        </a>
+        <a href="" class="btn  ">
+          <v-icon class="text-primary">mdi-instagram </v-icon> Follow us on
+          Instagram
+        </a>
+        <br />
+        <a href="" class="btn" style="font-size:15px; ">Home</a>
+
+        <br />
+        <a href="" class="btn" style="font-size:15px; ">About us</a>
+
+        <br />
+        <a href="" class="btn" style="font-size:15px; ">Contact us</a>
+        <br />
+        <a href="" class="btn" style="font-size:15px; ">Feedback & inquires</a>
+        <v-img src="../assets/cashondelivery.png" width="70%"></v-img>
+
+         <v-toolbar flat>
+              <span
+                style="font-size:15px; color:#546E7A"
+                class="text-dark ml-10 "
+              >
+                Copyright © Shopikart.lk</span
+              >
+              <v-spacer></v-spacer>
+
+              <v-avatar class="mr-8">
+                <!-- <img src="../assets/exlogo.png" alt="Logo" /> -->
+              </v-avatar>
+            </v-toolbar>
+      </div>
+    </v-row>
+
+    <v-row class="m-0 desktop_footer">
       <div class="col-xl-12  ">
         <v-row>
           <div class="col-xl-4  ">
@@ -117,12 +157,24 @@ export default {
   .fb-page {
     display: block;
   }
+  .mobile_footer {
+    display: block;
+  }
+  .desktop_footer {
+    display: none;
+  }
 }
 
 /* medium mobile size */
 @media screen and (min-width: 375px) {
   .fb-page {
     display: block;
+  }
+  .mobile_footer {
+    display: block;
+  }
+  .desktop_footer {
+    display: none;
   }
 }
 
@@ -131,12 +183,24 @@ export default {
   .fb-page {
     display: block;
   }
+  .mobile_footer {
+    display: block;
+  }
+  .desktop_footer {
+    display: none;
+  }
 }
 
 /* tablet size */
 @media screen and (min-width: 768px) {
   .fb-page {
     display: none;
+  }
+  .mobile_footer {
+    display: none;
+  }
+  .desktop_footer {
+    display: block;
   }
 }
 
