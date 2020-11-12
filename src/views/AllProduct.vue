@@ -56,7 +56,7 @@
               MENU
               <v-spacer></v-spacer>
               <v-img
-                src="../assets/Logo/logo white bg.jpeg"
+                src="../assets/Logo/logo yellow bg.jpeg"
                 max-width="50"
               ></v-img>
               <v-spacer></v-spacer>
