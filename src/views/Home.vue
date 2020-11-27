@@ -27,12 +27,21 @@
         filled
         light
         background-color="white"
-        append-icon="mdi-magnify"
+      
         class=" pt-6  c_search  "
         dense
         label="Search for your products ..."
-        @click:append=""
-      ></v-text-field>
+        
+      >
+        <v-icon
+          slot="append"
+          color="white"
+          class="bg-primary rounded btn"
+          style="margin-top:-6px"
+        >
+          mdi-magnify
+        </v-icon>
+        </v-text-field>
       <v-spacer></v-spacer>
       <v-btn small depressed class="c_login_btn" color="#375bd0">
         <v-icon small>mdi-cart</v-icon>
@@ -231,12 +240,20 @@
           light
           background-color="white"
           append-icon="mdi-magnify"
-          @click:append=""
+          
           filled
           class="c_m_search"
           dense
           label="Search for your products ..."
-        ></v-text-field>
+        >
+          <v-icon
+          slot="append"
+          color="white"
+          class="bg-primary rounded btn"
+          style="margin-top:-6px"
+        >
+          mdi-magnify
+        </v-icon></v-text-field>
       </v-col>
     </v-card>
 

@@ -31,8 +31,16 @@
         class=" pt-6  c_search  "
         dense
         label="Search for your products ..."
-        @click:append=""
-      ></v-text-field>
+      >
+        <v-icon
+          slot="append"
+          color="white"
+          class="bg-primary rounded btn"
+          style="margin-top:-6px"
+        >
+          mdi-magnify
+        </v-icon>
+      </v-text-field>
       <v-spacer></v-spacer>
       <v-btn small depressed class="c_login_btn" color="#375bd0">
         <v-icon small>mdi-cart</v-icon>
@@ -174,13 +182,21 @@
           light
           background-color="white"
           append-icon="mdi-magnify"
-          @click:append=""
           filled
           class="c_m_search"
           dense
           v-model="search"
           label="Search for your products ..."
-        ></v-text-field>
+        >
+          <v-icon
+            slot="append"
+            color="white"
+            class="bg-primary rounded btn"
+            style="margin-top:-6px"
+          >
+            mdi-magnify
+          </v-icon></v-text-field
+        >
       </v-col>
     </v-card>
 
@@ -242,92 +258,87 @@
     </v-row>
 
     <v-row class="m-0">
-      <v-col cols="6"><v-icon>mdi-sort</v-icon>Sorting</v-col>
-      <v-col cols="6"><v-icon>mdi-filter</v-icon>Filter by category</v-col>
-    </v-row>
-    <!-- DATATABLE -->
-    <v-data-table
-      :headers="headers"
-      :items="C_Products"
-      hide-default-header
-      :search="search"
-      :footer-props="{
-        itemsPerPageOptions: [5, 10, 25, 35, 55, 65, 75, -1],
-      }"
-      :items-per-page="35"
-    >
-      <template v-slot:item="{ item }">
-        <v-card @click="">
-          <v-row class="m-0 flex flex-row align-center">
-            <v-col cols="4">
-              <v-img
-                :src="require(`../assets/products/` + item.img)"
-                width="130"
-                height="130"
-              ></v-img>
-            </v-col>
-            <v-col cols="6">
-              <v-row class="m-0 ">
-                <v-col cols="12">
-                  <span class="font-weight-bold font">{{ item.name }}</span>
-                  <br />
-                  <span class="text-secondary product_category_Text_size">{{
-                    item.category
-                  }}</span>
-                  <br />
-                  <span>{{ item.price }}</span>
+      <!-- first Section -->
+      <v-col md="4" cols="12" class=" ">
+        <!-- sort by price -->
+        <v-col cols="12" md="12">
+          <v-card>
+            <v-card-title>
+              <v-select
+                outlined
+                dense
+                prepend-icon="mdi-sort"
+                :items="PriceSorting"
+                v-model="sortSelected"
+                @change="sorting($event)"
+                label="SORT BY PRICE"
+              ></v-select>
+            </v-card-title>
+          </v-card>
+        </v-col>
+
+        <!-- sort by category -->
+        <v-col cols="12" md="12">
+          <v-card>
+            <v-card-title>
+              <v-select
+                outlined
+                dense
+                prepend-icon="mdi-filter"
+                :items="categories"
+                @change="categorySorting($event)"
+                v-model="categoriesSelected"
+                hide-selected
+                label="CHOOSE CATEGORY"
+              ></v-select>
+            </v-card-title>
+          </v-card>
+        </v-col>
+        
+      </v-col>
+
+      <!-- second section -->
+      <v-col md="8" class=" ">
+        <!-- DATATABLE -->
+        <v-data-table
+          :headers="headers"
+          :items="C_Products"
+          hide-default-header
+          :search="search"
+          :footer-props="{
+            itemsPerPageOptions: [5, 10, 25, 35, 55, 65, 75, -1],
+          }"
+          :items-per-page="35"
+        >
+          <template v-slot:item="{ item }">
+            <v-card @click="">
+              <v-row class="m-0 flex flex-row align-center">
+                <v-col cols="4">
+                  <v-img
+                    :src="require(`../assets/products/` + item.img)"
+                    width="130"
+                    height="130"
+                  ></v-img>
+                </v-col>
+                <v-col cols="6">
+                  <v-row class="m-0 ">
+                    <v-col cols="12">
+                      <span class="font-weight-bold font">{{ item.name }}</span>
+                      <br />
+                      <span class="text-secondary product_category_Text_size">{{
+                        item.category
+                      }}</span>
+                      <br />
+                      <span>{{ item.price }}</span>
+                    </v-col>
+                  </v-row>
                 </v-col>
               </v-row>
-            </v-col>
-          </v-row>
-        </v-card>
-        <!-- <v-card
-          flat
-          tile
-          class="mx-auto ma-2"
-          outlined
-          max-width="600"
-          @click=""
-        >
-          <v-list-item three-line>
-            <v-list-item-content>
-              <v-col
-                cols="12"
-                md="3"
-                class="flex flex-row justify-center align-center"
-              >
-                <v-img
-                  src="../assets/products/135.png"
-                  width="150"
-                  height="150"
-                ></v-img>
-              </v-col>
-
-              <v-col cols="12" md="6">
-                <div class="overline  ">
-                  {{ item.name }}
-                </div>
-                <div class=" ">
-                  <p style="font-size:12px; color:#546E7A">
-                    {{ item.category }}
-                  </p>
-                </div>
-                <div class="  ">
-                  <p style="font-size:18px; color:#004D40">
-                    Rs. {{ item.price }}
-                  </p>
-                </div>
-                <div class=" mb-4">
-                  <p style="font-size:12px; color:#546E7A">
-                    {{ item.description }}
-                  </p>
-                </div>
-              </v-col>
-            </v-list-item-content>
-          </v-list-item>
-        </v-card> -->
-      </template>
-    </v-data-table>
+            </v-card>
+          </template>
+        </v-data-table>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
