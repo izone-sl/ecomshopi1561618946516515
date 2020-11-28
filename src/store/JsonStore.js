@@ -47,15 +47,6 @@ export const tempJson = [
       },
     ],
     MainCategories: [
-      // baby toys,
-      // electronics
-      // fashion
-      // grocery
-      // health beauty
-      // home kitchen
-      // school suppliers
-      // sports fitness
-
       {
         visibleStatus: "display",
         title: "Baby & Toys",

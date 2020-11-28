@@ -1,8 +1,7 @@
 <template>
-  <div id="AllProducts" v-if="JStore[0]">
-    <!-- if statement placed to hide the undifented Jstore array [0] -->
-
+  <div id="categories" v-if="JStore[0]">
     <!-- TOP NAVIGATION -->
+
     <v-toolbar dense height="65" color="#375bd0" dark>
       <v-app-bar-nav-icon
         class="c_menu"
@@ -21,7 +20,6 @@
         filled
         light
         background-color="white"
-        append-icon="mdi-magnify"
         class=" pt-6  c_search  "
         dense
         label="Search for your products ..."
@@ -163,37 +161,6 @@
       </v-list>
     </v-navigation-drawer>
 
-    <!-- MOBILE ONLY SEARCH FUNCTION -->
-    <v-card
-      color="#375bd0"
-      flat
-      class="c_m_search_card rounded-0 border-0"
-      height="70"
-      dark
-    >
-      <v-col class="d-flex align-center justify-center">
-        <v-text-field
-          light
-          background-color="white"
-          append-icon="mdi-magnify"
-          filled
-          class="c_m_search"
-          dense
-          v-model="search"
-          label="Search for your products ..."
-        >
-          <v-icon
-            slot="append"
-            color="white"
-            class="bg-primary rounded btn"
-            style="margin-top:-6px"
-          >
-            mdi-magnify
-          </v-icon></v-text-field
-        >
-      </v-col>
-    </v-card>
-
     <!-- all category dialog on navigation bar -->
     <v-row justify="center">
       <v-dialog
@@ -223,10 +190,9 @@
                     <v-card
                       tile
                       flat
-                      :color="coloringCard(index)"
                       class=" ma-1  "
-                      @click="mainCategory_clicked(item)"
                       v-if="item.visibleStatus === 'display'"
+                      @click="mainCategory_clicked(item)"
                     >
                       <v-img
                         :src="
@@ -246,175 +212,89 @@
       </v-dialog>
     </v-row>
 
-    <v-row class="m-0">
-      <!-- first Section -->
-      <v-col md="4" cols="12" class=" ">
-        <!-- sort by price -->
-        <v-col cols="12" md="12">
-          <v-card>
-            <v-card-title>
-              <v-select
-                outlined
-                dense
-                prepend-icon="mdi-sort"
-                :items="PriceSorting"
-                v-model="sortSelected"
-                @change="sorting($event)"
-                label="SORT BY PRICE"
-              ></v-select>
-            </v-card-title>
-          </v-card>
-        </v-col>
-
-        <!-- sort by category -->
-        <v-col cols="12" md="12">
-          <v-card>
-            <v-card-title>
-              <v-select
-                outlined
-                dense
-                prepend-icon="mdi-filter"
-                :items="categories"
-                @change="categorySorting($event)"
-                v-model="categoriesSelected"
-                hide-selected
-                label="CHOOSE CATEGORY"
-              ></v-select>
-            </v-card-title>
-          </v-card>
-        </v-col>
-      </v-col>
-
-      <!-- second section -->
-      <v-col md="8" class=" ">
-        <!-- DATATABLE -->
-        <v-data-table
-          :headers="headers"
-          :items="C_Products"
-          hide-default-header
-          :search="search"
-          :footer-props="{
-            itemsPerPageOptions: [5, 10, 25, 35, 55, 65, 75, -1],
-          }"
-          :items-per-page="35"
+    <!-- MOBILE ONLY SEARCH FUNCTION -->
+    <v-card
+      color="#375bd0"
+      flat
+      class="c_m_search_card rounded-0 border-0"
+      height="70"
+      dark
+    >
+      <v-col class="d-flex align-center justify-center">
+        <v-text-field
+          light
+          background-color="white"
+          append-icon="mdi-magnify"
+          filled
+          class="c_m_search"
+          dense
+          label="Search for your products ..."
         >
-          <template v-slot:item="{ item }">
-            <v-card @click="">
-              <v-row class="m-0 flex flex-row align-center">
-                <v-col cols="4">
-                  <v-img
-                    :src="require(`../assets/products/` + item.img)"
-                    width="130"
-                    height="130"
-                  ></v-img>
-                </v-col>
-                <v-col cols="6">
-                  <v-row class="m-0 ">
-                    <v-col cols="12">
-                      <span class="font-weight-bold font">{{ item.name }}</span>
-                      <br />
-                      <span class="text-secondary product_category_Text_size">{{
-                        item.category
-                      }}</span>
-                      <br />
-                      <span>{{ item.price }}</span>
-                    </v-col>
-                  </v-row>
-                </v-col>
-              </v-row>
-            </v-card>
-          </template>
-        </v-data-table>
+          <v-icon
+            slot="append"
+            color="white"
+            class="bg-primary rounded btn"
+            style="margin-top:-6px"
+          >
+            mdi-magnify
+          </v-icon></v-text-field
+        >
+      </v-col>
+    </v-card>
+
+    <!-- content -->
+
+    <v-row class="m-0">
+      <v-col md="12" cols="12">
+        {{ selectedCategoryRoute[0] }} - Products will display
+        <br />
+        Sub categories need to index
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer";
 const JsonStore = require("../store/JsonStore");
 export default {
-  name: "AllProducts",
-  components: {
-    Footer,
+  name: "categories",
+  data() {
+    return {
+      navigationDrawer: false,
+      all_category_dialog: false,
+
+      get_data: [],
+      JStore: [],
+      selectedCategoryRoute: [],
+    };
   },
-  data: () => ({
-    JStore: [],
-    navigationDrawer: false,
-    all_category_dialog: false,
-    colorCache: {},
-    headers: [
-      {
-        text: "name",
-        align: "start",
-        value: "name",
-      },
-      {
-        text: "category",
-        align: "start",
-        value: "category",
-      },
-      {
-        text: "price",
-        align: "start",
-        value: "price",
-      },
-    ],
-    C_Products: [
-      {
-        name: "Anchor Milk Powder",
-        category: "Grocery",
-        price: "Rs. 500",
-        img: "2.png",
-      },
-      {
-        name: "Sunlight Soap",
-        category: "Grocery",
-        price: "Rs. 60",
-        img: "72.png",
-      },
-      {
-        name: "Ratthi Milk powder",
-        category: "Grocery",
-        price: "Rs. 460",
-        img: "135.png",
-      },
-      {
-        name: "Rice cooker",
-        category: "Home and Kitchen",
-        price: "Rs. 3500",
-        img: "Bright-rice-cooker-6L-1.jpg",
-      },
-    ],
-    search: "",
-  }),
   mounted() {
+    this.initRoutes();
+
     JsonStore["tempJson"].forEach((element) => {
-      console.log(element);
+      // console.log(element);
       this.JStore.push(element);
     });
   },
-  watch: {
-    coloringCard(id) {
-      const r = () => Math.floor(256 * Math.random());
-
-      return (
-        this.colorCache[id] ||
-        (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
-      );
-    },
-  },
   methods: {
-    coloringCard(id) {
-      const r = () => Math.floor(256 * Math.random());
+    initRoutes() {
+      if (!this.$route.params.get_data) {
+        this.$router.push({ name: "Home" });
+      }
 
-      return (
-        this.colorCache[id] ||
-        (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
-      );
+      if (this.$route.params.get_data) {
+        this.get_data.push(this.$route.params.get_data);
+
+        this.get_data.forEach((element) => {
+          this.selectedCategoryRoute.push(element.title);
+        });
+      }
     },
     mainCategory_clicked(item) {
-      alert(item.title + " Clicked");
+      console.log(item);
+      this.selectedCategoryRoute.splice(0);
+      this.selectedCategoryRoute.push(item.title);
+      this.all_category_dialog = false;
     },
   },
 };
@@ -424,14 +304,17 @@ export default {
 .product_section_bar {
   background-color: #375bd0;
 }
-.product_category_Text_size {
-  font-size: 10px;
-}
 
 /* small mobile size */
 @media screen and (min-width: 320px) {
   .c_search {
     display: none;
+  }
+  .product_slider {
+    display: none;
+  }
+  .mobile_product_view {
+    display: block;
   }
 }
 
@@ -444,6 +327,12 @@ export default {
   .c_search {
     display: none;
   }
+  .product_slider {
+    display: none;
+  }
+  .mobile_product_view {
+    display: block;
+  }
 }
 
 /* large mobile size */
@@ -454,6 +343,12 @@ export default {
   .c_search {
     display: none;
   }
+  .product_slider {
+    display: none;
+  }
+  .mobile_product_view {
+    display: block;
+  }
 }
 
 /* tablet size */
@@ -462,6 +357,12 @@ export default {
     display: block;
   }
   .c_m_search_card {
+    display: none;
+  }
+  .product_slider {
+    display: block;
+  }
+  .mobile_product_view {
     display: none;
   }
 }

@@ -11,15 +11,9 @@
 
       <v-spacer></v-spacer>
 
-      <v-img
-        class="c_title"
-        src="../assets/Logo/logo white bg.jpeg"
-        max-width="100"
-      ></v-img>
-
-      <!-- <v-toolbar-title class="c_title">
-        {{ JStore[0]["contactInfomation"].name }}</v-toolbar-title
-      > -->
+      <v-btn to="/" depressed tile text class="c_title p-0">
+        <v-img src="../assets/Logo/logo white bg.jpeg" max-width="100"></v-img>
+      </v-btn>
 
       <v-spacer></v-spacer>
 
@@ -868,7 +862,7 @@ export default {
   }),
   mounted() {
     JsonStore["tempJson"].forEach((element) => {
-      console.log(element);
+      // console.log(element);
       this.JStore.push(element);
     });
   },
@@ -892,7 +886,8 @@ export default {
       );
     },
     mainCategory_clicked(item) {
-      alert(item.title + " Clicked");
+      // alert(item.title + " Clicked");
+      this.$router.push({ name: "Categories", params: { get_data: item } });
     },
   },
 };
@@ -919,6 +914,7 @@ export default {
 @media screen and (min-width: 375px) {
   .c_title {
     margin-left: 40px;
+    margin-top: -15px;
   }
   .c_search {
     display: none;
