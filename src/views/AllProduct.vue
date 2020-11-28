@@ -17,9 +17,7 @@
         max-width="100"
       ></v-img>
 
-      <!-- <v-toolbar-title class="c_title">
-        {{ JStore[0]["contactInfomation"].name }}</v-toolbar-title
-      > -->
+ 
 
       <v-spacer></v-spacer>
 
@@ -218,7 +216,7 @@
           <v-list three-line subheader>
             <v-list-item>
               <v-list-item-content>
-                <v-row class="m-0 flex flex-row justify-center align-center">
+                <!-- <v-row class="m-0 flex flex-row justify-center align-center">
                   <v-col
                     md="2"
                     cols="5"
@@ -243,13 +241,10 @@
                         class="border-0"
                       />
 
-                      <!-- <br />
-                      <p class="text-light" style="font-size:11px;">
-                        {{ item.title }}
-                      </p> -->
+         
                     </v-card>
                   </v-col>
-                </v-row>
+                </v-row> -->
               </v-list-item-content>
             </v-list-item>
           </v-list>

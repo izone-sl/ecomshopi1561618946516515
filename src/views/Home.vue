@@ -27,11 +27,9 @@
         filled
         light
         background-color="white"
-      
         class=" pt-6  c_search  "
         dense
         label="Search for your products ..."
-        
       >
         <v-icon
           slot="append"
@@ -41,7 +39,7 @@
         >
           mdi-magnify
         </v-icon>
-        </v-text-field>
+      </v-text-field>
       <v-spacer></v-spacer>
       <v-btn small depressed class="c_login_btn" color="#375bd0">
         <v-icon small>mdi-cart</v-icon>
@@ -195,14 +193,14 @@
                     class=" p-0 text-center border-0"
                     v-for="(item, index) in JStore[0]['MainCategories']"
                     :key="index"
-                    v-if="item.visibleStatus === 'display'"
                   >
                     <v-card
                       tile
                       flat
                       :color="coloringCard(index)"
                       class=" ma-1  "
-                      @click=""
+                      v-if="item.visibleStatus === 'display'"
+                      @click="mainCategory_clicked(item)"
                     >
                       <v-img
                         :src="
@@ -212,11 +210,6 @@
                         alt="categories"
                         class="border-0"
                       />
-
-                      <!-- <br />
-                      <p class="text-light" style="font-size:11px;">
-                        {{ item.title }}
-                      </p> -->
                     </v-card>
                   </v-col>
                 </v-row>
@@ -240,20 +233,20 @@
           light
           background-color="white"
           append-icon="mdi-magnify"
-          
           filled
           class="c_m_search"
           dense
           label="Search for your products ..."
         >
           <v-icon
-          slot="append"
-          color="white"
-          class="bg-primary rounded btn"
-          style="margin-top:-6px"
+            slot="append"
+            color="white"
+            class="bg-primary rounded btn"
+            style="margin-top:-6px"
+          >
+            mdi-magnify
+          </v-icon></v-text-field
         >
-          mdi-magnify
-        </v-icon></v-text-field>
       </v-col>
     </v-card>
 
@@ -264,40 +257,30 @@
         v-for="(item, index) in JStore[0]['MainCategories']"
         :key="index"
         class="w-100 ma-0 pa-0"
-        v-if="item.visibleStatus === 'display'"
       >
-        <v-card flat tile @click="" class="w-100 ma-0 pa-0">
-          <v-avatar size="70" color="white">
+        <v-card
+          flat
+          tile
+          class="w-100 ma-0 pa-0"
+          v-if="item.visibleStatus === 'display'"
+        >
+          <v-avatar
+            size="80"
+            tile
+            color="white"
+            @click="mainCategory_clicked(item)"
+          >
             <img
               :src="require(`../assets/category_avatar/` + item.avatar)"
-              max-width="250"
-              max-height="250"
               alt="categories"
             />
           </v-avatar>
 
           <br />
-          <p style="font-size:6px;">{{ item.title }}</p>
+          <!-- <p style="font-size:6px;">{{ item.title }}</p> -->
         </v-card>
       </v-tab>
     </v-tabs>
-
-    <!-- local test -->
-    <!-- <v-tabs light height="90" class="w-100 ma-0 pa-0">
-      <v-tab v-for="i in 30" :key="i" class="w-100 ma-0 pa-0">
-        <v-card flat tile @click="" class="w-100 ma-0 pa-0">
-          <v-avatar>
-            <v-img
-              src="../assets/logo.png"
-              max-width="300"
-              max-height="300"
-            ></v-img>
-          </v-avatar>
-          <br />
-          <p style="font-size:6px;">CATEGORIES {{ i }}</p>
-        </v-card>
-      </v-tab>
-    </v-tabs> -->
 
     <!-- advertisement -->
     <v-row class="ma-0">
@@ -876,7 +859,7 @@ export default {
   data: () => ({
     JStore: [],
     navigationDrawer: false,
-    all_category_dialog: false,
+    all_category_dialog: true,
     items: [
       "https://shoppingo.lk/admin_area/slides_images/4s.jpg",
       "https://shoppingo.lk/admin_area/slides_images/3s.jpg",
@@ -907,6 +890,9 @@ export default {
         this.colorCache[id] ||
         (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`)
       );
+    },
+    mainCategory_clicked(item) {
+      alert(item.title + " Clicked");
     },
   },
 };

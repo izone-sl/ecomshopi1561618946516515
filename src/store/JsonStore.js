@@ -45,68 +45,56 @@ export const tempJson = [
         icon: "mdi-clipboard-account",
         name: "",
       },
-     
     ],
     MainCategories: [
+      // baby toys,
+      // electronics
+      // fashion
+      // grocery
+      // health beauty
+      // home kitchen
+      // school suppliers
+      // sports fitness
+
+      {
+        visibleStatus: "display",
+        title: "Baby & Toys",
+        avatar: "baby_toys.jpg",
+      },
+      {
+        visibleStatus: "display",
+        title: "Electronics",
+        avatar: "electronics.jpg",
+      },
+      {
+        visibleStatus: "display",
+        title: "Fashion",
+        avatar: "fashion.jpg",
+      },
+      {
+        visibleStatus: "display",
+        title: "Grocery",
+        avatar: "grocery.jpg",
+      },
+      {
+        visibleStatus: "display",
+        title: "Health & Beauty",
+        avatar: "healthy_beauty.jpg",
+      },
       {
         visibleStatus: "display",
         title: "Home & Kitchen",
-        avatar: "home_kitchen.jpeg",
+        avatar: "home_kitchen.jpg",
       },
       {
         visibleStatus: "display",
-        title: "Electronic accessories",
-        avatar: "electronics.jpeg",
-      },
-      {
-        visibleStatus: "display",
-        title: "Healthy & Beauty",
-        avatar: "Healthy_Beauty.jpeg",
-      },
-      {
-        visibleStatus: "display",
-        title: "Babies & Kids",
-        avatar: "baby_kids.jpeg",
+        title: "School Suppliers",
+        avatar: "school_suppliers.jpg",
       },
       {
         visibleStatus: "display",
         title: "Sports & Fitness",
-        avatar: "sports.jpeg",
-      },
-      {
-        visibleStatus: "hide",
-        title: "Women's Fashion",
-        avatar: "default.png",
-      },
-      {
-        visibleStatus: "hide",
-        title: "Men's Fashion",
-        avatar: "default.png",
-      },
-      {
-        visibleStatus: "hide",
-        title: "Islamic Accessories",
-        avatar: "default.png",
-      },
-      {
-        visibleStatus: "hide",
-        title: "School Accessories",
-        avatar: "default.png",
-      },
-      {
-        visibleStatus: "hide",
-        title: "Grocery",
-        avatar: "default.png",
-      },
-      {
-        visibleStatus: "hide",
-        title: "Foods",
-        avatar: "default.png",
-      },
-      {
-        visibleStatus: "hide",
-        title: "Furniture",
-        avatar: "default.png",
+        avatar: "sports_fitness.jpg",
       },
     ],
   },
