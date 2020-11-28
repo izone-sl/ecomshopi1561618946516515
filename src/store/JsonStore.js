@@ -51,6 +51,33 @@ export const tempJson = [
         visibleStatus: "display",
         title: "Baby & Toys",
         avatar: "baby_toys.jpg",
+        subCategories: [
+          {
+            visibleStatus: "display",
+            title: "Baby Bath & Grooming",
+            avatar: "b_bath.jpg",
+          },
+          {
+            visibleStatus: "display",
+            title: "Baby Bedding",
+            avatar: "b_bedding.jpg",
+          },
+          {
+            visibleStatus: "display",
+            title: "Dirpers & Potty",
+            avatar: "b_dirpers.jpg",
+          },
+          {
+            visibleStatus: "display",
+            title: "Healthy & Feeding",
+            avatar: "b_healthy.jpg",
+          },
+          {
+            visibleStatus: "display",
+            title: "Toys & Games",
+            avatar: "b_toys.jpg",
+          },
+        ],
       },
       {
         visibleStatus: "display",

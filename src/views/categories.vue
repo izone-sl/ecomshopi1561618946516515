@@ -242,30 +242,220 @@
       </v-col>
     </v-card>
 
-    <!-- content -->
-
-    <v-row class="m-0">
-      <v-col md="12" cols="12">
-        {{ selectedCategoryRoute[0] }} - Products will display
-        <br />
-        Sub categories need to index
+    <!-- advertisement -->
+    <v-row class="m-0 ">
+      <v-col md="12" cols="12" class="p-0">
+        <v-list-item-avatar
+          tile
+          width="100%"
+          height="150"
+          color="grey"
+          class="d-flex align-center justify-center"
+        >
+          <p>advertisement section</p>
+        </v-list-item-avatar>
       </v-col>
     </v-row>
+
+    <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
+      <v-toolbar-title>{{ selectedCategoryRoute[0] }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+
+    <!--CATEGORY TAB SLIDER -->
+    <v-tabs light height="90" class="w-100 ma-0 pa-0">
+      <v-tab
+        v-for="(item, index) in JStore[0]['MainCategories'][0]['subCategories']"
+        :key="index"
+        class="w-100 ma-0 pa-0"
+      >
+        <v-card flat tile class="w-100 ma-0 pa-0" v-if="selectedCategoryRoute[0] == 'Baby & Toys'">
+          <v-avatar size="80" tile color="white">
+            <img
+              :src="require(`../assets/subCategories/` + item.avatar)"
+              alt="categories"
+            />
+          </v-avatar>
+        </v-card>
+      </v-tab>
+    </v-tabs>
+
+    <!-- advertisement -->
+    <v-row class="m-0 ">
+      <v-col md="12" cols="12" class="p-0">
+        <v-list-item-avatar
+          tile
+          width="100%"
+          height="150"
+          color="grey"
+          class="d-flex align-center justify-center"
+        >
+          <p>advertisement section</p>
+        </v-list-item-avatar>
+      </v-col>
+    </v-row>
+
+    <!-- MOBILE ONLY LATEST DISPLAY -->
+    <!-- LATEST PRODUCTS -->
+    <v-card class="mt-3" flat tile>
+      <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
+        <v-toolbar-title>LATEST PRODUCTS</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn color="#375bd0">
+          View All
+        </v-btn>
+      </v-toolbar>
+
+      <!-- DESKTOP ONLY PRODUCT SLIDER -->
+      <v-tabs light height="250" show-arrows class="product_slider">
+        <v-tab v-for="i in 30" :key="i" class="  ma-1">
+          <v-card width="170" class="pa-0" tile flat>
+            <v-img src="../assets/products/135.png" width="100%"></v-img>
+            <br />
+            <p>RATHI MILK POWDER</p>
+            <p>Rs. 600</p>
+          </v-card>
+        </v-tab>
+      </v-tabs>
+    </v-card>
+    <v-card class="mobile_product_view" tile flat>
+      <v-row class="m-0  pa-2" style="background-color:#375bd0;">
+        <!-- p1 -->
+        <v-col cols="6" class="bg-light ">
+          <v-card class="border border-primary rounded-0  pa-1" width="100%">
+            <v-img src="../assets/products/135.png" height="100px"></v-img>
+            <v-card-title style="font-size:16px;">
+              RATTHI MILK
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 300
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <!-- P2 -->
+        <v-col cols="6" class="bg-light ">
+          <v-card class="border border-primary rounded-0  pa-1">
+            <v-img src="../assets/products/2.png" height="100px"></v-img>
+            <v-card-title style="font-size:16px;">
+              ANCHOR MILK
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 360
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <!-- P3 -->
+        <v-col cols="6" class="bg-light ">
+          <v-card class="border border-primary rounded-0  pa-1">
+            <v-img src="../assets/products/milo.jpg" height="100px"></v-img>
+            <v-card-title style="font-size:16px;">
+              MILO DRINK
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 75
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <!-- P4 -->
+        <v-col cols="6" class="bg-light ">
+          <v-card class="border border-primary rounded-0  pa-1">
+            <v-img src="../assets/products/72.png" height="100px"></v-img>
+            <v-card-title style="font-size:16px;">
+              SUNLIGHT
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 60
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <!-- p1 -->
+        <v-col cols="6" class="bg-light ">
+          <v-card class="border border-primary rounded-0  pa-1" width="100%">
+            <v-img src="../assets/products/135.png" height="100px"></v-img>
+            <v-card-title style="font-size:16px;">
+              RATTHI MILK
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 300
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <!-- P2 -->
+        <v-col cols="6" class="bg-light ">
+          <v-card class="border border-primary rounded-0  pa-1">
+            <v-img src="../assets/products/2.png" height="100px"></v-img>
+            <v-card-title style="font-size:16px;">
+              ANCHOR MILK
+            </v-card-title>
+            <v-card-subtitle class="text-success">
+              Rs. 360
+            </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn icon> <v-icon>mdi-cart</v-icon></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon> <v-icon>mdi-whatsapp</v-icon></v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-card>
+
+    <Footer />
   </div>
 </template>
 
 <script>
 const JsonStore = require("../store/JsonStore");
+import Footer from "../components/Footer";
 export default {
   name: "categories",
+  components: {
+    Footer,
+  },
   data() {
     return {
       navigationDrawer: false,
       all_category_dialog: false,
 
       get_data: [],
-      JStore: [],
       selectedCategoryRoute: [],
+      subCategory: [],
+      JStore: [],
     };
   },
   mounted() {
@@ -274,6 +464,11 @@ export default {
     JsonStore["tempJson"].forEach((element) => {
       // console.log(element);
       this.JStore.push(element);
+    });
+
+    JsonStore["tempJson"].forEach((element) => {
+      // console.log(element.subCategories);
+      this.subCategory.push(element.subCategories);
     });
   },
   methods: {

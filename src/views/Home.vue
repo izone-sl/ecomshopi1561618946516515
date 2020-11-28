@@ -861,6 +861,12 @@ export default {
     colorCache: {},
   }),
   mounted() {
+    window.onoffline = function() {
+      alert(
+        "Please check your internet connection shopikart loosing data signal"
+      );
+    };
+
     JsonStore["tempJson"].forEach((element) => {
       // console.log(element);
       this.JStore.push(element);
