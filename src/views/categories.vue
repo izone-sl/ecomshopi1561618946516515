@@ -276,7 +276,7 @@
           class="w-100 ma-0 pa-0"
           v-if="selectedCategoryRoute[0] == 'Baby & Toys'"
         >
-          <v-avatar size="80" tile color="white">
+          <v-avatar size="100" tile color="white">
             <img
               :src="require(`../assets/subCategories/` + item.avatar)"
               alt="categories"
