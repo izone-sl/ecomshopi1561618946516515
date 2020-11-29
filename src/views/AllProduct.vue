@@ -246,6 +246,21 @@
       </v-dialog>
     </v-row>
 
+    <!-- advertisement -->
+    <v-row class="m-0 ">
+      <v-col md="12" cols="12" class="p-0">
+        <v-list-item-avatar
+          tile
+          width="100%"
+          height="150"
+          color="grey"
+          class="d-flex align-center justify-center"
+        >
+          <p>advertisement section</p>
+        </v-list-item-avatar>
+      </v-col>
+    </v-row>
+
     <v-row class="m-0">
       <!-- first Section -->
       <v-col md="4" cols="12" class=" ">
@@ -258,7 +273,6 @@
                 dense
                 prepend-icon="mdi-sort"
                 :items="PriceSorting"
-                v-model="sortSelected"
                 @change="sorting($event)"
                 label="SORT BY PRICE"
               ></v-select>
@@ -276,7 +290,6 @@
                 prepend-icon="mdi-filter"
                 :items="categories"
                 @change="categorySorting($event)"
-                v-model="categoriesSelected"
                 hide-selected
                 label="CHOOSE CATEGORY"
               ></v-select>
@@ -287,6 +300,12 @@
 
       <!-- second section -->
       <v-col md="8" class=" ">
+        <v-toolbar dark color="#375bd0" dense class="rounded-0 border-0">
+          <v-toolbar-title>{{
+            this.$route.params.get_data.title
+          }}</v-toolbar-title>
+          <v-spacer></v-spacer>
+        </v-toolbar>
         <!-- DATATABLE -->
         <v-data-table
           :headers="headers"
@@ -327,6 +346,7 @@
         </v-data-table>
       </v-col>
     </v-row>
+    <Footer />
   </div>
 </template>
 
@@ -343,6 +363,8 @@ export default {
     navigationDrawer: false,
     all_category_dialog: false,
     colorCache: {},
+    PriceSorting: [],
+    categories: [],
     headers: [
       {
         text: "name",
@@ -393,6 +415,10 @@ export default {
       console.log(element);
       this.JStore.push(element);
     });
+    console.log(this.$route.params.get_data);
+    if (!this.$route.params.get_data) {
+      this.$router.push({ name: "Home" });
+    }
   },
   watch: {
     coloringCard(id) {

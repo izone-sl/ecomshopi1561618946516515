@@ -268,8 +268,14 @@
         v-for="(item, index) in JStore[0]['MainCategories'][0]['subCategories']"
         :key="index"
         class="w-100 ma-0 pa-0"
+        @click="categoryRedirect(item)"
       >
-        <v-card flat tile class="w-100 ma-0 pa-0" v-if="selectedCategoryRoute[0] == 'Baby & Toys'">
+        <v-card
+          flat
+          tile
+          class="w-100 ma-0 pa-0"
+          v-if="selectedCategoryRoute[0] == 'Baby & Toys'"
+        >
           <v-avatar size="80" tile color="white">
             <img
               :src="require(`../assets/subCategories/` + item.avatar)"
@@ -490,6 +496,10 @@ export default {
       this.selectedCategoryRoute.splice(0);
       this.selectedCategoryRoute.push(item.title);
       this.all_category_dialog = false;
+    },
+
+    categoryRedirect(item) {
+      this.$router.push({ name: "AllProduct", params: { get_data: item } });
     },
   },
 };
